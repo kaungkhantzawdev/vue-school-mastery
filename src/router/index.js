@@ -1,11 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import DetailView from "@/views/DetailView";
+import axios from "axios";
+import NotFound from "@/views/NotFound";
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
+  },
+  {
+    path: '/detail/:id',
+    name: 'detail',
+    component: DetailView,
+    props: true,
   },
   {
     path: '/about',
@@ -23,3 +37,4 @@ const router = createRouter({
 })
 
 export default router
+
